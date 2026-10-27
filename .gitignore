@@ -5,10 +5,11 @@ media/gif/
 
 # Runtime data — users, passkeys, per-user state, session secret
 data/
+dev-data
 
 # Local config
 .env
-
+.env.development.local
 # Build output / deps
 frontend/dist/
 node_modules/

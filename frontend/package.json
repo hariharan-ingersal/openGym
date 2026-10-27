@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:tailscale": "node --env-file=.env.development.local ./node_modules/vite/bin/vite.js --host 127.0.0.1 --strictPort",
     "build": "vite build",
     "build:mobile": "VITE_MOBILE=1 vite build && node ../scripts/catalogue/stage-media.mjs dist && cap sync && node scripts/check-mobile-bundle.mjs",
     "preview": "vite preview",
