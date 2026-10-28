@@ -17,6 +17,7 @@ import { weightIncrement, stepWeight } from '../lib/progression.js'
 import { speedUnitOf, toSpeed, fromSpeed } from '../lib/speed.js'
 import { effortPickerSheet, exerciseDetailSheet, exerciseHistorySheet, exerciseNoteSheet, menuSheet, barWeightSheet } from '../sheets.jsx'
 import { baseWeightFor, inventoryFor, loadKindFor, rowLoad } from '../lib/plates.js'
+import { pickerActiveSet } from '../lib/plate-picker.js'
 import { ownedWeightsFor, stepOwned } from '../lib/dumbbells.js'
 import Icon from '../components/Icon.jsx'
 import { Button, Stepper } from '../components/ui.jsx'
@@ -108,7 +109,7 @@ function PlateBadge({ S, entry, set }) {
 }
 
 export default function FocusView({
-  entryIdx, unit, onToggle, onToggleSide, onField, onMutateSet, onStartTimed,
+  entryIdx, unit, onToggle, onToggleSide, onField, onMutateSet, onStartTimed, onOpenPlates,
   onAddSet, onAddWarmup, onRemoveSetAt, onProgressionSettings, onSwap, onRemoveExercise,
   onNoProg, busy, onSelectEntry, onAdvanceUnit, onPairPrev, onPairNext, onUnpair, pointerEpoch,
 }) {
@@ -320,6 +321,7 @@ export default function FocusView({
             onChange={value => onField(setIdx, 'r', value)} />}</>}
         </>}
         <div className="focus-extras">
+          {onOpenPlates && mode === 'reps' && !isSideSet(set) && setIdx === pickerActiveSet(entry.sets) && <button type="button" className="focus-plate-shortcut" disabled={readOnly} onClick={() => onOpenPlates(entryIdx, setIdx)}><Icon name="plate" />{t('Plates')}</button>}
           {drops.map((drop, index) => <div className="focus-extra" key={`drop-${index}`}>
             <span>{t('Drop {0}', index + 1)}</span>
             <Stepper label={t('Load')} ariaLabel="load" value={drop.w || 0} step={loadStep} onStep={stepLoad} disabled={readOnly}

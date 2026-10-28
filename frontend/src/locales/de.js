@@ -1,5 +1,13 @@
 // German UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "Scheibenrechner",
+  "Total calculated weight": "Berechnetes Gesamtgewicht",
+  "Apply scope": "Anwenden auf",
+  "Current set": "Aktueller Satz",
+  "Remaining sets": "Verbleibende Sätze",
+  "Apply {0} to {1}": "{0} auf {1} anwenden",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "Das gespeicherte Gewicht {0} lässt sich mit diesen Scheiben nicht genau erreichen. Ändere eine Scheibe oder setze zurück, um ein neues Gesamtgewicht anzuwenden.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "Training oder Scheibeneinstellungen wurden geändert. Öffne den Rechner erneut.",
   // --- generic ---
   'Confirm': 'Bestätigen',
   'Cancel': 'Abbrechen',

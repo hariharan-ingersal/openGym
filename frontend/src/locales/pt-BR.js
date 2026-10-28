@@ -4,6 +4,14 @@
 import pt from './pt.js'
 
 export const PT_BR_OVERRIDES = {
+  'Plate calculator': 'Calculadora de anilhas',
+  'Total calculated weight': 'Peso total calculado',
+  'Apply scope': 'Aplicar em',
+  'Current set': 'Série atual',
+  'Remaining sets': 'Séries restantes',
+  'Apply {0} to {1}': 'Aplicar {0} em {1}',
+  'Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.': 'O peso salvo de {0} não pode ser montado exatamente com estas anilhas. Altere uma anilha ou redefina para aplicar um novo peso total.',
+  'Workout or plate settings changed. Reopen the picker to continue.': 'O treino ou as configurações das anilhas mudaram. Abra o seletor novamente para continuar.',
   'The search finds it by these too. Separate them with commas.': 'A busca também encontra o exercício por estes. Separe com vírgulas.',
   'Save names': 'Salvar nomes',
   'Handy when you compare with another app. Records ignore warm-ups either way.': 'Ajuda quando você compara com outro app. Os recordes ignoram o aquecimento de qualquer jeito.',

@@ -1,5 +1,13 @@
 // Turkish UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "Plaka hesaplayıcı",
+  "Total calculated weight": "Hesaplanan toplam ağırlık",
+  "Apply scope": "Uygulama kapsamı",
+  "Current set": "Geçerli set",
+  "Remaining sets": "Kalan setler",
+  "Apply {0} to {1}": "{0} değerini {1} için uygula",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "Kaydedilen {0} ağırlığı bu plakalarla tam olarak oluşturulamıyor. Yeni toplam ağırlığı uygulamak için plakayı değiştirin veya sıfırlayın.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "Antrenman veya plaka ayarları değişti. Devam etmek için seçiciyi yeniden açın.",
   'Confirm': 'Onayla',
   'Cancel': 'İptal',
   'Press back again to exit': 'Çıkmak için geri tuşuna tekrar basın',

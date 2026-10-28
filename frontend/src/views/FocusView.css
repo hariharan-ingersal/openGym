@@ -68,3 +68,6 @@
   .focus-extra{grid-template-columns:1fr 1fr}
   .focus-extra>span:first-child{grid-column:1/-1}
 }
+.focus-plate-shortcut{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 12px;border:0;border-radius:var(--r);background:var(--surface-2);color:var(--acc);font:inherit;cursor:pointer}
+.focus-plate-shortcut:disabled{opacity:.4;cursor:default}
+.focus-plate-shortcut svg{width:17px;height:17px}

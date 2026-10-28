@@ -1,5 +1,13 @@
 // Ukrainian UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "Калькулятор млинців",
+  "Total calculated weight": "Розрахована загальна вага",
+  "Apply scope": "Застосувати до",
+  "Current set": "Поточний підхід",
+  "Remaining sets": "Решта підходів",
+  "Apply {0} to {1}": "Застосувати {0} до {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "Збережену вагу {0} не можна точно набрати цими млинцями. Змініть млинець або скиньте вибір, щоб застосувати нову загальну вагу.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "Тренування або налаштування млинців змінилися. Відкрийте вибір знову, щоб продовжити.",
   'Confirm': 'Підтвердити',
   'Cancel': 'Скасувати',
   'Press back again to exit': 'Натисни «Назад» ще раз, щоб вийти',

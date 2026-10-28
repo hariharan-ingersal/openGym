@@ -1,5 +1,13 @@
 // Polish UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "Kalkulator talerzy",
+  "Total calculated weight": "Obliczony ciężar całkowity",
+  "Apply scope": "Zastosuj do",
+  "Current set": "Bieżąca seria",
+  "Remaining sets": "Pozostałe serie",
+  "Apply {0} to {1}": "Zastosuj {0} do {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "Zapisanego ciężaru {0} nie da się dokładnie ułożyć z tych talerzy. Zmień talerz lub wyzeruj wybór, aby zastosować nowy ciężar całkowity.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "Trening lub ustawienia talerzy uległy zmianie. Otwórz wybór ponownie, aby kontynuować.",
   'Confirm': 'Potwierdź',
   'Cancel': 'Anuluj',
   'Press back again to exit': 'Naciśnij wstecz ponownie, aby wyjść',

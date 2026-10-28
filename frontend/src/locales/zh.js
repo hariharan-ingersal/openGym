@@ -1,5 +1,13 @@
 // Simplified Chinese UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "杠铃片计算器",
+  "Total calculated weight": "计算后的总重量",
+  "Apply scope": "应用范围",
+  "Current set": "当前组",
+  "Remaining sets": "剩余组",
+  "Apply {0} to {1}": "将 {0} 应用于 {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "无法用这些杠铃片准确配出已保存的重量 {0}。请更换杠铃片或重置，以应用新的总重量。",
+  "Workout or plate settings changed. Reopen the picker to continue.": "训练或杠铃片设置已更改。请重新打开选择器以继续。",
   'Confirm': '确认',
   'Cancel': '取消',
   'Press back again to exit': '再按一次返回退出',

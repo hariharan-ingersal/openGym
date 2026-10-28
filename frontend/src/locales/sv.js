@@ -1,5 +1,13 @@
 // Swedish UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "Viktskivekalkylator",
+  "Total calculated weight": "Beräknad totalvikt",
+  "Apply scope": "Tillämpa på",
+  "Current set": "Aktuellt set",
+  "Remaining sets": "Återstående set",
+  "Apply {0} to {1}": "Tillämpa {0} på {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "Den sparade vikten {0} går inte att sätta ihop exakt med dessa skivor. Ändra en skiva eller återställ för att använda en ny totalvikt.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "Träningen eller skivinställningarna har ändrats. Öppna väljaren igen för att fortsätta.",
   // --- generic ---
   'Confirm': 'Bekräfta',
   'Cancel': 'Avbryt',

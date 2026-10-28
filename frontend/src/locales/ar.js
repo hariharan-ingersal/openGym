@@ -1,5 +1,13 @@
 // Arabic UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "حاسبة الأوزان",
+  "Total calculated weight": "الوزن الإجمالي المحسوب",
+  "Apply scope": "نطاق التطبيق",
+  "Current set": "المجموعة الحالية",
+  "Remaining sets": "المجموعات المتبقية",
+  "Apply {0} to {1}": "طبّق {0} على {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "لا يمكن تكوين الوزن المحفوظ {0} بدقة بهذه الأوزان. غيّر أحد الأوزان أو أعد الضبط لتطبيق وزن إجمالي جديد.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "تغيّر التمرين أو إعدادات الأوزان. افتح أداة الاختيار مجددًا للمتابعة.",
   'Confirm': 'تأكيد',
   'Cancel': 'إلغاء',
   'Press back again to exit': 'اضغط زر الرجوع مرة أخرى للخروج',
