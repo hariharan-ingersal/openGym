@@ -8,6 +8,8 @@ import { useUI } from '../store/useUI.js'
 import { EXIDX, exOr, betterWeight } from '../lib/exercises.js'
 import { usesBar } from '../lib/bar.js'
 import { loadKindFor, baseWeightFor, inventoryFor, rowLoad, sameLoad, plateDelta, dropGrid } from '../lib/plates.js'
+import { pickerStock, pickerActiveSet } from '../lib/plate-picker.js'
+import PlatePicker from '../components/PlatePicker.jsx'
 import { effectiveRoutines, effectiveRoutineIds, lastEntryFor, bestWeightFor, bestWeightForEntry, freestyleConfig, pickedExerciseConfig, setsDoneActive, setUnitsTotal, supersetUnits, unitOf, setLabel, modeOf, isBw, isPerSide, repStep, EFFORT, effortOf, stepEffort, capEffort, cascadeWeight, insertWarmupRow, barFloor, makeWarmupAt, canBeWarmup, makeWorkAt, removeRowAt, removeLastSet, setSpanAt, copyRowAt, copySpanAt, insertRowAt, pairAdjacent, unpairSuperset, cleanupSg, applyIntensifierPlan, pinnedNoteFor, exNoteFor, setsRepsOf, sessionVolume } from '../lib/history.js'
 import { fmtNum, fmtPlate, fmtVol, exerciseNameText, fmtDate, fmtDaysAgo, todayISO, exCount, DAYN } from '../lib/format.js'
 import { speedUnitOf, toSpeed, fromSpeed } from '../lib/speed.js'
@@ -107,7 +109,7 @@ const RTL_LETTER = /[֐-ࣿיִ-﷿ﹰ-﻿]/
 // enough to turn over, far shorter than the rest the set earns once both sides are held.
 const SWITCH_SIDES_SEC = 10
 
-function ExerciseBlock({ entryIdx, compact, dense, editing, onToggle, onToggleSide, onField, onAddSet, onRemoveSet, onAddWarmup, onRemoveSetAt, onCopySetAt, onStartTimed, onPairPrev, onPairNext, onSetRowRef, onProgressionSettings, onRest, onNoProg, routineUpdate, onSwap, onSwapBackup, onMoveUp, onMoveDown, canMoveUp, canMoveDown, onRemoveExercise, busy }) {
+function ExerciseBlock({ entryIdx, compact, dense, editing, onToggle, onToggleSide, onField, onAddSet, onRemoveSet, onAddWarmup, onRemoveSetAt, onCopySetAt, onStartTimed, onPairPrev, onPairNext, onSetRowRef, onProgressionSettings, onRest, onNoProg, routineUpdate, onSwap, onSwapBackup, onMoveUp, onMoveDown, canMoveUp, canMoveDown, onRemoveExercise, onOpenPlates, busy }) {
   const S = useStore(s => s.S)
   const update = useStore(s => s.update)
   const working = useUI(s => s.work)
@@ -817,7 +819,10 @@ function ExerciseBlock({ entryIdx, compact, dense, editing, onToggle, onToggleSi
         <Button size="sm" icon="sunrise" onClick={onAddWarmup}>{t('Add warm-up set')}</Button>
         <Button size="sm" icon="minus" disabled={entry.sets.length <= setSpanAt(entry.sets, entry.sets.length - 1)[1]} onClick={onRemoveSet}>{t('Remove set')}</Button>
         <Button size="sm" icon="plus" onClick={onAddSet}>{t('Add set')}</Button>
-      </div> : <Button size="sm" icon="plus" onClick={onAddSet}>{t('Add set')}</Button>}
+        {onOpenPlates && <Button size="sm" icon="plate" onClick={() => onOpenPlates(entryIdx)}>{t('Plates')}</Button>}
+      </div> : <div className="row between" style={{ flexWrap: 'wrap' }}><Button size="sm" icon="plus" onClick={onAddSet}>{t('Add set')}</Button>
+        {onOpenPlates && <Button size="sm" icon="plate" onClick={() => onOpenPlates(entryIdx)}>{t('Plates')}</Button>}
+      </div>}
     </div>
   </>
 }
@@ -1286,6 +1291,37 @@ function ActiveWorkout() {
       e.sets = cascadeWeight(e.sets, i, v, undefined, e.target?.backoffStep)
     }
   })
+  const openPlates = (idx, selected) => {
+    const current = useStore.getState().S
+    const active = current.active
+    const entry = active?.entries?.[idx]
+    if (!entry) return
+    const cfg = { ...(entry.target || {}), id: entry.id }
+    const kind = loadKindFor(current, cfg)
+    if (modeOf(cfg) !== 'reps' || kind === 'none' || (entryDbLoad(entry) === 'each' && bellsIn(cfg) > 1)) return
+    const initial = pickerActiveSet(entry.sets)
+    if (initial < 0 || (selected != null && selected !== initial)) return
+    const base = baseWeightFor(current, entry.id)
+    const stock = pickerStock(current, kind)
+    const snapshot = JSON.stringify(active.entries)
+    const unit = current.unit
+    const workoutId = active.id
+    const entryId = entry.id
+    const props = { name: exerciseNameFor(exOr(entryId)), unit, kind, base, bar: usesBar(exOr(entryId)), stock, sets: structuredClone(entry.sets), initial }
+    useUI.getState().openSheet(close => <PlatePicker {...props} close={close} onApply={total => {
+      const fresh = useStore.getState().S
+      const now = fresh.active
+      const same = now?.id === workoutId && now.entries?.[idx]?.id === entryId
+        && JSON.stringify(now.entries) === snapshot && fresh.unit === unit
+        && loadKindFor(fresh, { ...(now.entries[idx].target || {}), id: entryId }) === kind
+        && baseWeightFor(fresh, entryId) === base
+        && JSON.stringify(pickerStock(fresh, kind)) === JSON.stringify(stock)
+      if (!same) return false
+      if (pickerActiveSet(now.entries[idx].sets) !== initial || !Number.isFinite(total) || total < 0) return false
+      setField(idx, initial, 'w', total)
+      return true
+    }} />)
+  }
   const modeAt = idx => modeOf({ ...(A.entries[idx].target || {}), id: A.entries[idx].id })
   const addSet = idx => mutEntry(idx, e => {
     const l = e.sets[e.sets.length - 1]
@@ -1434,6 +1470,7 @@ function ActiveWorkout() {
     onToggle: (i, onFocusProgress) => toggle(idx, i, undefined, { onFocusProgress }),
     onToggleSide: (i, side, onFocusProgress) => toggle(idx, i, side, { onFocusProgress }),
     onField: (i, f, v) => setField(idx, i, f, v),
+    onOpenPlates: !editing && modeAt(idx) === 'reps' && loadKindFor(S, { ...(A.entries[idx].target || {}), id: A.entries[idx].id }) !== 'none' && !(entryDbLoad(A.entries[idx]) === 'each' && bellsIn({ ...(A.entries[idx].target || {}), id: A.entries[idx].id }) > 1) && pickerActiveSet(A.entries[idx].sets) >= 0 ? openPlates : null,
     onMutateSet: (i, fn) => mutEntry(idx, entry => { entry.sets[i] = fn(entry.sets[i]) }),
     onAddSet: () => addSet(idx),
     onRemoveSet: () => removeSet(idx),

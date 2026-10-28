@@ -1,5 +1,13 @@
 // Thai UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "เครื่องคำนวณแผ่นน้ำหนัก",
+  "Total calculated weight": "น้ำหนักรวมที่คำนวณได้",
+  "Apply scope": "นำไปใช้กับ",
+  "Current set": "เซตปัจจุบัน",
+  "Remaining sets": "เซตที่เหลือ",
+  "Apply {0} to {1}": "ใช้ {0} กับ {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "ไม่สามารถจัดแผ่นน้ำหนักเหล่านี้ให้ตรงกับน้ำหนักที่บันทึกไว้ {0} ได้พอดี เปลี่ยนแผ่นหรือรีเซ็ตเพื่อใช้น้ำหนักรวมใหม่",
+  "Workout or plate settings changed. Reopen the picker to continue.": "การออกกำลังกายหรือการตั้งค่าแผ่นน้ำหนักเปลี่ยนไป เปิดตัวเลือกอีกครั้งเพื่อดำเนินการต่อ",
   // --- generic ---
   'Confirm': 'ยืนยัน',
   'Cancel': 'ยกเลิก',

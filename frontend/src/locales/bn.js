@@ -1,5 +1,13 @@
 // Bengali UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "প্লেট ক্যালকুলেটর",
+  "Total calculated weight": "হিসাব করা মোট ওজন",
+  "Apply scope": "প্রয়োগের পরিসর",
+  "Current set": "বর্তমান সেট",
+  "Remaining sets": "বাকি সেটগুলি",
+  "Apply {0} to {1}": "{1}-এ {0} প্রয়োগ করুন",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "সংরক্ষিত ওজন {0} এই প্লেটগুলি দিয়ে হুবহু তৈরি করা যায় না। নতুন মোট ওজন প্রয়োগ করতে একটি প্লেট বদলান বা রিসেট করুন।",
+  "Workout or plate settings changed. Reopen the picker to continue.": "ওয়ার্কআউট বা প্লেটের সেটিংস বদলেছে। চালিয়ে যেতে পিকারটি আবার খুলুন।",
   'Confirm': 'নিশ্চিত করুন',
   'Cancel': 'বাতিল',
   'Press back again to exit': 'বের হতে আবার ব্যাক চাপুন',

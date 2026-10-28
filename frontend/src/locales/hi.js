@@ -1,5 +1,13 @@
 // Hindi UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "प्लेट कैलकुलेटर",
+  "Total calculated weight": "गणना किया गया कुल वज़न",
+  "Apply scope": "लागू करने का दायरा",
+  "Current set": "मौजूदा सेट",
+  "Remaining sets": "बाकी सेट",
+  "Apply {0} to {1}": "{1} पर {0} लागू करें",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "सहेजा गया वज़न {0} इन प्लेटों से बिल्कुल नहीं बनाया जा सकता। नया कुल वज़न लागू करने के लिए प्लेट बदलें या रीसेट करें।",
+  "Workout or plate settings changed. Reopen the picker to continue.": "वर्कआउट या प्लेट सेटिंग बदल गई हैं। जारी रखने के लिए पिकर दोबारा खोलें।",
   'Confirm': 'पुष्टि करें',
   'Cancel': 'रद्द करें',
   'Press back again to exit': 'बाहर निकलने के लिए फिर से बैक दबाएँ',

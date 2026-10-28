@@ -1,5 +1,13 @@
 // Hungarian UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "Tárcsakalkulátor",
+  "Total calculated weight": "Számított összsúly",
+  "Apply scope": "Alkalmazás köre",
+  "Current set": "Aktuális sorozat",
+  "Remaining sets": "Hátralévő sorozatok",
+  "Apply {0} to {1}": "{0} alkalmazása erre: {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "A mentett {0} súly nem rakható ki pontosan ezekből a tárcsákból. Módosíts egy tárcsát, vagy állítsd vissza az új összsúly alkalmazásához.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "Az edzés vagy a tárcsabeállítások megváltoztak. A folytatáshoz nyisd meg újra a választót.",
   // --- generic ---
   'Confirm': 'Megerősítés',
   'Cancel': 'Mégse',

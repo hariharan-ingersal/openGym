@@ -1,5 +1,13 @@
 // Russian UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "Калькулятор блинов",
+  "Total calculated weight": "Рассчитанный общий вес",
+  "Apply scope": "Применить к",
+  "Current set": "Текущий подход",
+  "Remaining sets": "Оставшиеся подходы",
+  "Apply {0} to {1}": "Применить {0} к {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "Сохранённый вес {0} нельзя точно собрать из этих блинов. Измените набор блинов или сбросьте его, чтобы применить новый общий вес.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "Тренировка или настройки блинов изменились. Откройте подбор снова, чтобы продолжить.",
   'Confirm': 'Подтвердить',
   'Cancel': 'Отмена',
   'Press back again to exit': 'Нажмите «Назад» ещё раз, чтобы выйти',

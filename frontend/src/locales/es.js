@@ -1,5 +1,13 @@
 // Spanish UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "Calculadora de discos",
+  "Total calculated weight": "Peso total calculado",
+  "Apply scope": "Aplicar a",
+  "Current set": "Serie actual",
+  "Remaining sets": "Series restantes",
+  "Apply {0} to {1}": "Aplicar {0} a {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "El peso guardado de {0} no puede formarse exactamente con estos discos. Cambia un disco o restablece para aplicar un nuevo peso total.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "El entrenamiento o la configuración de discos ha cambiado. Vuelve a abrir la calculadora.",
   'Confirm': 'Confirmar',
   'Cancel': 'Cancelar',
   'Press back again to exit': 'Pulsa atrás otra vez para salir',

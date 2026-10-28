@@ -1,5 +1,13 @@
 // Korean UI strings. Keys are the English source strings (see lib/i18n.js).
 export default {
+  "Plate calculator": "원판 계산기",
+  "Total calculated weight": "계산된 총중량",
+  "Apply scope": "적용 범위",
+  "Current set": "현재 세트",
+  "Remaining sets": "남은 세트",
+  "Apply {0} to {1}": "{1}에 {0} 적용",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "저장된 중량 {0}은 이 원판으로 정확히 만들 수 없습니다. 원판을 바꾸거나 초기화한 뒤 새 총중량을 적용하세요.",
+  "Workout or plate settings changed. Reopen the picker to continue.": "운동 또는 원판 설정이 변경되었습니다. 계속하려면 선택기를 다시 여세요.",
   'Confirm': '확인',
   'Cancel': '취소',
   'Press back again to exit': '뒤로를 한 번 더 누르면 종료됩니다',

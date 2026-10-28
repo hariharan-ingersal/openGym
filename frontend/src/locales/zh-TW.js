@@ -1,4 +1,12 @@
 export default {
+  "Plate calculator": "槓片計算器",
+  "Total calculated weight": "計算後的總重量",
+  "Apply scope": "套用範圍",
+  "Current set": "目前組數",
+  "Remaining sets": "剩餘組數",
+  "Apply {0} to {1}": "將 {0} 套用至 {1}",
+  "Saved weight {0} cannot be made exactly with these plates. Change a plate or reset to apply a new total.": "無法用這些槓片精確配出已儲存的重量 {0}。請更換槓片或重設，以套用新的總重量。",
+  "Workout or plate settings changed. Reopen the picker to continue.": "訓練或槓片設定已變更。請重新開啟選擇器以繼續。",
   'Confirm': '確認',
   'Cancel': '取消',
   'Press back again to exit': '再按一次返回以退出',
