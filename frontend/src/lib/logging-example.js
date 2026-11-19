@@ -10,7 +10,7 @@
 // Only a weighted reps set has a load to explain. Bodyweight, timed and cardio work get null.
 
 import { workoutVolume, isPerSide } from './history.js'
-import { makeSideSet, syncSideAggregate } from './workout-model.js'
+import { makeSideSet, syncSideAggregate, isSideSet, isWarmupRow, dropsOf } from './workout-model.js'
 import { withMeaning, entryDbLoad, bellsIn, isBellEx, volumeFactor } from './dumbbells.js'
 import { loadKindFor, baseWeightFor, inventoryFor, rowLoad } from './plates.js'
 import { usesBar } from './bar.js'
@@ -73,6 +73,25 @@ export function loggingExample(S, cfg, { mode = 'reps', bodyweight = false, plat
       : usesBar(id) ? (base > 0 ? 'bar' : 'no-bar')
         : base > 0 ? 'base' : 'plates'
   return { heading, what, perSide, w, rows, factor, volume, base, kind, load }
+}
+
+const doneRow = r => ({ ...r, done: true })
+
+/**
+ * One workout set's volume and the terms it is made of, for the line under the set (Settings →
+ * Workout → "Volume under each set"). The set is counted as if done, so the line follows what is
+ * typed before the tick; the number itself is workoutVolume's, so it is what the session counts.
+ * Terms: each side, then each drop, as weight × reps; `factor` is the dumbbell one (volumeFactor).
+ * null for a warm-up the profile leaves out of volume, and for a set that moves nothing.
+ *   → { rows: [{ w, r }], factor, volume }
+ */
+export function setVolume(entry, set, { warmups = false } = {}) {
+  if (!entry || !set || (!warmups && isWarmupRow(set))) return null
+  const parts = isSideSet(set) ? [set.sides.L, set.sides.R] : [set]
+  const rows = parts.flatMap(p => [p, ...dropsOf(p)]).map(p => ({ w: num(p?.w), r: num(p?.r) }))
+  const done = isSideSet(set) ? { ...set, done: true, sides: { L: doneRow(set.sides.L), R: doneRow(set.sides.R) } } : doneRow(set)
+  const volume = workoutVolume({ entries: [{ ...entry, sets: [done] }] }, { warmups: true })
+  return volume > 0 ? { rows: rows.filter(x => x.w > 0 && x.r > 0), factor: volumeFactor(entry), volume } : null
 }
 
 /**

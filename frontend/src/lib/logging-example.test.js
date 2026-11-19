@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { loggingExample, volumeSum } from './logging-example.js'
+import { loggingExample, volumeSum, setVolume } from './logging-example.js'
 import { withDbLoad } from './dumbbells.js'
 import { withLoadKind } from './plates.js'
 import { workoutVolume } from './history.js'
@@ -168,6 +168,43 @@ describe('loggingExample: odd configs', () => {
     const cfg = { id: BENCH, reps: 10, weight: 22.5, dbLoad: 'each' }
     const logged = { entries: [{ id: BENCH, target: { ...cfg }, sets: [{ w: 22.5, r: 10, done: true }] }] }
     expect(ex(kg, cfg).volume).toBe(workoutVolume(logged))
+  })
+})
+
+describe('setVolume: the line under a workout set', () => {
+  const bench = (target = {}) => ({ id: SQUAT, target: { id: SQUAT, ...target } })
+  test('a straight set: weight × reps, counted even before the tick', () => {
+    const v = setVolume(bench(), { w: 100, r: 8, done: false })
+    expect(v.volume).toBe(800)
+    expect(volumeSum(v)).toBe('100 × 8')
+  })
+
+  test('the same number the session counts once the set is done', () => {
+    const entry = { id: BENCH, target: { id: BENCH, dbLoad: 'each' }, sets: [{ w: 20, r: 10, done: true }] }
+    const v = setVolume(entry, entry.sets[0])
+    expect(v.volume).toBe(workoutVolume({ entries: [entry] }))
+    expect(volumeSum(v)).toBe('20 × 10 × 2')
+  })
+
+  test('per side: each side at its own weight', () => {
+    const set = { w: 20, r: 12, sides: { L: { w: 20, r: 6, done: true }, R: { w: 17.5, r: 6, done: false } } }
+    const v = setVolume(bench({ side: true }), set)
+    expect(volumeSum(v)).toBe('20 × 6 + 17.5 × 6')
+    expect(v.volume).toBe(225)
+  })
+
+  test('drops are their own terms', () => {
+    const v = setVolume(bench(), { w: 100, r: 8, type: 'dropset', drops: [{ w: 80, r: 6 }] })
+    expect(volumeSum(v)).toBe('100 × 8 + 80 × 6')
+    expect(v.volume).toBe(1280)
+  })
+
+  test('warm-ups follow the volume setting; empty sets have no line', () => {
+    const warm = { w: 60, r: 5, warmup: true }
+    expect(setVolume(bench(), warm)).toBeNull()
+    expect(setVolume(bench(), warm, { warmups: true }).volume).toBe(300)
+    expect(setVolume(bench(), { w: 0, r: 8 })).toBeNull()
+    expect(setVolume(bench(), { w: 100, r: 0 })).toBeNull()
   })
 })
 
