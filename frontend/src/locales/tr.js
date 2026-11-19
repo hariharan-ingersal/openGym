@@ -4447,4 +4447,19 @@ export default {
   "{0} of {1} modules on.": "{1} modülden {0} tanesi açık.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "“Sağlık” kapalıyken {0} eşitlemeyi durdurur. Hiçbir bağlantı kesilmez, “Sağlık” geri gelince her şeyi yakalar.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Kayıt örneği",
+  "Both sides": "İki taraf",
+  "Base weight is included in the logged total.": "Taban ağırlık kaydedilen toplama dahildir.",
+  "Enter {0}, the weight of one. Volume counts both.": "{0} gir, bir tanesinin ağırlığı. Hacim ikisini de sayar.",
+  "Enter {0}, both together. Volume counts it once.": "{0} gir, ikisi birlikte. Hacim bir kez sayar.",
+  "Enter {0} as you count it. Volume uses it as typed.": "{0} değerini saydığın gibi gir. Hacim girildiği gibi alır.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "{0} gir, tuttuğun tek ağırlık. Tek kol, bu yüzden bir kez sayılır.",
+  "Enter {0} in total: the {1} bar plus plates.": "Toplam {0} gir: {1} bar artı plakalar.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Toplam {0} gir: {1} taban ağırlık artı plakalar.",
+  "Enter {0} in total, all plates.": "Toplam {0} gir, hepsi plaka.",
+  "Enter {0}, the weight you lift.": "{0} gir, kaldırdığın ağırlık.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Her taraf kendi ağırlığını ve tekrarını kaydeder. İkisi de hacme sayılır.",
+  "Volume per set: {0}": "Set başına hacim: {0}",
+  "Set a weight above to see what to enter.": "Ne gireceğini görmek için yukarıda bir ağırlık belirle.",
 };

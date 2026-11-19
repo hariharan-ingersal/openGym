@@ -4394,4 +4394,19 @@ export default {
   "{0} of {1} modules on.": "모듈 {1}개 중 {0}개 켜짐.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "'건강'이 꺼져 있는 동안 {0} 동기화가 멈춰요. 연결은 끊기지 않고, '건강'을 다시 켜면 밀린 걸 따라잡아요.",
+  // --- exercise settings: logging example ---
+  "Logging example": "기록 예시",
+  "Both sides": "양쪽",
+  "Base weight is included in the logged total.": "기본 무게는 기록한 총 무게에 포함돼요.",
+  "Enter {0}, the weight of one. Volume counts both.": "{0}을 입력하세요. 하나의 무게예요. 볼륨은 두 개를 셉니다.",
+  "Enter {0}, both together. Volume counts it once.": "{0}을 입력하세요. 두 개를 합친 무게예요. 볼륨은 한 번 셉니다.",
+  "Enter {0} as you count it. Volume uses it as typed.": "{0}을 세는 방식대로 입력하세요. 볼륨은 입력한 그대로 씁니다.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "{0}을 입력하세요. 들고 있는 하나의 무게예요. 한 팔이라 한 번 셉니다.",
+  "Enter {0} in total: the {1} bar plus plates.": "총 {0}을 입력하세요. {1} 바와 원판을 합친 무게예요.",
+  "Enter {0} in total: the {1} base weight plus plates.": "총 {0}을 입력하세요. 기본 무게 {1}와 원판을 합친 무게예요.",
+  "Enter {0} in total, all plates.": "총 {0}을 입력하세요. 모두 원판이에요.",
+  "Enter {0}, the weight you lift.": "{0}을 입력하세요. 드는 무게예요.",
+  "Each side logs its own weight and reps. Both count toward volume.": "양쪽 각각 무게와 횟수를 기록해요. 둘 다 볼륨에 들어가요.",
+  "Volume per set: {0}": "세트당 볼륨: {0}",
+  "Set a weight above to see what to enter.": "위에서 무게를 정하면 무엇을 입력할지 보여요.",
 };

@@ -4359,4 +4359,19 @@ export default {
   "{0} of {1} modules on.": "{0} من {1} وحدات مفعّلة.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "يتوقف {0} عن المزامنة ما دامت «الصحة» متوقفة. لا يُفصل شيء، ويلحق بكل شيء عند عودة «الصحة».",
+  // --- exercise settings: logging example ---
+  "Logging example": "مثال على التسجيل",
+  "Both sides": "الجانبان",
+  "Base weight is included in the logged total.": "الوزن الأساسي مشمول في المجموع المسجّل.",
+  "Enter {0}, the weight of one. Volume counts both.": "أدخل {0}، وزن الواحد. الحجم يحسب الاثنين.",
+  "Enter {0}, both together. Volume counts it once.": "أدخل {0}، الاثنين معًا. الحجم يحسبه مرة واحدة.",
+  "Enter {0} as you count it. Volume uses it as typed.": "أدخل {0} كما تحسبه. الحجم يأخذه كما كُتب.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "أدخل {0}، الذي تمسكه. ذراع واحدة، فيُحسب مرة واحدة.",
+  "Enter {0} in total: the {1} bar plus plates.": "أدخل {0} إجمالًا: البار {1} زائد الأقراص.",
+  "Enter {0} in total: the {1} base weight plus plates.": "أدخل {0} إجمالًا: {1} وزن أساسي زائد الأقراص.",
+  "Enter {0} in total, all plates.": "أدخل {0} إجمالًا، كلها أقراص.",
+  "Enter {0}, the weight you lift.": "أدخل {0}، الوزن الذي ترفعه.",
+  "Each side logs its own weight and reps. Both count toward volume.": "لكل جانب وزنه وتكراراته. يُحسب الجانبان في الحجم.",
+  "Volume per set: {0}": "الحجم لكل مجموعة: {0}",
+  "Set a weight above to see what to enter.": "حدّد وزنًا في الأعلى لترى ما تُدخله.",
 };

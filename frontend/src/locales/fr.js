@@ -4527,4 +4527,19 @@ export default {
   "{0} of {1} modules on.": "{0} modules actifs sur {1}.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "{0} ne se synchronise plus tant que « Santé » est désactivé. Rien n’est déconnecté, et tout se rattrape dès que « Santé » revient.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Exemple de saisie",
+  "Both sides": "Deux côtés",
+  "Base weight is included in the logged total.": "Le poids de base est inclus dans le total saisi.",
+  "Enter {0}, the weight of one. Volume counts both.": "Saisis {0}, le poids d’un seul. Le volume compte les deux.",
+  "Enter {0}, both together. Volume counts it once.": "Saisis {0}, les deux ensemble. Le volume le compte une fois.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Saisis {0} comme tu le comptes. Le volume le prend tel quel.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Saisis {0}, celui que tu tiens. Un bras, donc compté une fois.",
+  "Enter {0} in total: the {1} bar plus plates.": "Saisis {0} au total : la barre de {1} plus les disques.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Saisis {0} au total : {1} de poids de base plus les disques.",
+  "Enter {0} in total, all plates.": "Saisis {0} au total, rien que des disques.",
+  "Enter {0}, the weight you lift.": "Saisis {0}, le poids que tu soulèves.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Chaque côté a son propre poids et ses répétitions. Les deux comptent dans le volume.",
+  "Volume per set: {0}": "Volume par série : {0}",
+  "Set a weight above to see what to enter.": "Règle un poids plus haut pour voir quoi saisir.",
 };

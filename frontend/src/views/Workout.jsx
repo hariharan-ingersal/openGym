@@ -436,7 +436,7 @@ function ExerciseBlock({ entryIdx, compact, dense, editing, onToggle, onToggleSi
   // not a "Bar 50 lb".
   const loadSummary = loadKind === 'none' ? t('Off')
     : loadKind === 'single' ? t('Single stack')
-      : !usesBar(ex) ? t('Per side')
+      : !usesBar(ex) ? t('Both sides')
         : base > 0 ? t('Bar {0}', fmtNum(base) + ' ' + S.unit) : t('No bar')
   // The line under a set row (or a drop sub-row): shown on the first loaded row and whenever the
   // stack changes from the loaded row before it, so a run of equal weights shows its plates once.

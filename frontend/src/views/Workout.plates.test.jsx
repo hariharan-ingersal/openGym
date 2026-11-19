@@ -179,7 +179,7 @@ describe('plate line under set rows', () => {
     act(() => sr.unmount()); sc.remove()
   })
 
-  it('the ⋯ menu names a bar only for a bar: a machine loaded per side with its own weight reads Per side', () => {
+  it('the ⋯ menu names a bar only for a bar: a machine loaded per side with its own weight reads Both sides', () => {
     const MACHINE = Object.values(EXIDX).find(e => e.eq === 'leverage machine').id
     mount([entry(MACHINE, [work(145)], { w: 145 })], {
       loadKind: { [MACHINE]: { kind: 'pairs', _ts: 1 } }, barWeights: { [MACHINE]: 50 },
@@ -193,7 +193,7 @@ describe('plate line under set rows', () => {
     act(() => sr.render(useUI.getState().sheets.at(-1).render(() => {})))
     unfold(sc)
     const item = [...sc.querySelectorAll('.menu-item')].find(b => b.textContent.includes('Plate loading'))
-    expect(item.textContent).toContain('Per side')
+    expect(item.textContent).toContain('Both sides')
     expect(item.textContent).not.toContain('Bar')
     act(() => sr.unmount()); sc.remove()
   })

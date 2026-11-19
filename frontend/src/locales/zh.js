@@ -4272,4 +4272,19 @@ export default {
   "{0} of {1} modules on.": "已开启 {0}/{1} 个模块。",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "“健康”关闭期间，{0} 会停止同步。不会断开任何连接，“健康”重新开启后会自动补上。",
+  // --- exercise settings: logging example ---
+  "Logging example": "记录示例",
+  "Both sides": "两侧",
+  "Base weight is included in the logged total.": "基础重量已包含在记录的总重里。",
+  "Enter {0}, the weight of one. Volume counts both.": "输入 {0}，一只的重量。容量会算两只。",
+  "Enter {0}, both together. Volume counts it once.": "输入 {0}，两只加起来。容量只算一次。",
+  "Enter {0} as you count it. Volume uses it as typed.": "按你的算法输入 {0}。容量按输入的数算。",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "输入 {0}，你手里那一只。单臂，所以只算一次。",
+  "Enter {0} in total: the {1} bar plus plates.": "共输入 {0}：{1} 的杠加杠铃片。",
+  "Enter {0} in total: the {1} base weight plus plates.": "共输入 {0}：{1} 的基础重量加杠铃片。",
+  "Enter {0} in total, all plates.": "共输入 {0}，全是杠铃片。",
+  "Enter {0}, the weight you lift.": "输入 {0}，你举起的重量。",
+  "Each side logs its own weight and reps. Both count toward volume.": "每侧记录各自的重量和次数，两侧都计入容量。",
+  "Volume per set: {0}": "每组容量：{0}",
+  "Set a weight above to see what to enter.": "在上方设定重量，就能看到该输入什么。",
 };
