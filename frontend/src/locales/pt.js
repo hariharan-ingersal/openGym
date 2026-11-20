@@ -4509,4 +4509,19 @@ export default {
   "{0} of {1} modules on.": "{0} de {1} módulos ligados.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "{0} deixa de sincronizar enquanto «Saúde» estiver desligado. Nada fica desconectado, e põe-se em dia quando «Saúde» voltar.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Exemplo de registo",
+  "Both sides": "Dois lados",
+  "Base weight is included in the logged total.": "O peso base está incluído no total registado.",
+  "Enter {0}, the weight of one. Volume counts both.": "Regista {0}, o peso de um. O volume conta os dois.",
+  "Enter {0}, both together. Volume counts it once.": "Regista {0}, os dois juntos. O volume conta-o uma vez.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Regista {0} como o contas. O volume usa-o tal como escrito.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Regista {0}, o que seguras. Um braço, por isso conta uma vez.",
+  "Enter {0} in total: the {1} bar plus plates.": "Regista {0} no total: a barra de {1} mais os discos.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Regista {0} no total: {1} de peso base mais os discos.",
+  "Enter {0} in total, all plates.": "Regista {0} no total, só discos.",
+  "Enter {0}, the weight you lift.": "Regista {0}, o peso que levantas.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Cada lado regista o seu peso e as suas repetições. Os dois contam para o volume.",
+  "Volume per set: {0}": "Volume por série: {0}",
+  "Set a weight above to see what to enter.": "Define um peso acima para ver o que registar.",
 };

@@ -4715,4 +4715,19 @@ export default {
   "{0} of {1} modules on.": "Включено модулей: {0} из {1}.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "Пока «Здоровье» выключено, {0} не синхронизируется. Ничего не отключается, и всё догонится, когда «Здоровье» вернётся.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Пример записи",
+  "Both sides": "Обе стороны",
+  "Base weight is included in the logged total.": "Базовый вес входит в записанный итог.",
+  "Enter {0}, the weight of one. Volume counts both.": "Вводи {0}, вес одной. В объём идут обе.",
+  "Enter {0}, both together. Volume counts it once.": "Вводи {0}, обе вместе. В объём идёт один раз.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Вводи {0} так, как считаешь. Объём берёт как введено.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Вводи {0}, ту, что держишь. Одна рука, поэтому считается один раз.",
+  "Enter {0} in total: the {1} bar plus plates.": "Вводи {0} всего: гриф {1} плюс блины.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Вводи {0} всего: {1} базового веса плюс блины.",
+  "Enter {0} in total, all plates.": "Вводи {0} всего, только блины.",
+  "Enter {0}, the weight you lift.": "Вводи {0}, вес, который поднимаешь.",
+  "Each side logs its own weight and reps. Both count toward volume.": "У каждой стороны свой вес и свои повторения. Обе идут в объём.",
+  "Volume per set: {0}": "Объём за подход: {0}",
+  "Set a weight above to see what to enter.": "Задай вес выше, чтобы увидеть, что вводить.",
 };

@@ -4498,4 +4498,19 @@ export default {
   "{0} of {1} modules on.": "{0} av {1} moduler på.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "{0} slutar synka medan ”Hälsa” är av. Inget kopplas bort, och allt kommer ikapp när ”Hälsa” är tillbaka.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Loggningsexempel",
+  "Both sides": "Båda sidor",
+  "Base weight is included in the logged total.": "Grundvikten ingår i den loggade totalen.",
+  "Enter {0}, the weight of one. Volume counts both.": "Skriv {0}, vikten på en. Volymen räknar båda.",
+  "Enter {0}, both together. Volume counts it once.": "Skriv {0}, båda tillsammans. Volymen räknar det en gång.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Skriv {0} som du räknar det. Volymen tar det som det är skrivet.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Skriv {0}, den du håller. En arm, så den räknas en gång.",
+  "Enter {0} in total: the {1} bar plus plates.": "Skriv {0} totalt: stången på {1} plus viktskivor.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Skriv {0} totalt: {1} grundvikt plus viktskivor.",
+  "Enter {0} in total, all plates.": "Skriv {0} totalt, bara viktskivor.",
+  "Enter {0}, the weight you lift.": "Skriv {0}, vikten du lyfter.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Varje sida loggar sin egen vikt och sina reps. Båda räknas i volymen.",
+  "Volume per set: {0}": "Volym per set: {0}",
+  "Set a weight above to see what to enter.": "Ställ in en vikt ovan för att se vad du ska skriva.",
 };

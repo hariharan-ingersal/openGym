@@ -4550,4 +4550,19 @@ export default {
   "{0} of {1} modules on.": "{0} von {1} Modulen an.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "{0} synchronisiert nicht, solange „Gesundheit“ aus ist. Nichts wird getrennt, und es holt alles nach, sobald „Gesundheit“ wieder an ist.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Beispiel fürs Eintragen",
+  "Both sides": "Beide Seiten",
+  "Base weight is included in the logged total.": "Das Grundgewicht ist im eingetragenen Gesamtgewicht enthalten.",
+  "Enter {0}, the weight of one. Volume counts both.": "Trag {0} ein, das Gewicht einer Hantel. Das Volumen zählt beide.",
+  "Enter {0}, both together. Volume counts it once.": "Trag {0} ein, beide zusammen. Das Volumen zählt es einmal.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Trag {0} so ein, wie du zählst. Das Volumen nimmt es wie eingegeben.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Trag {0} ein, die eine, die du hältst. Ein Arm, also zählt es einmal.",
+  "Enter {0} in total: the {1} bar plus plates.": "Trag {0} gesamt ein: die Stange mit {1} plus Scheiben.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Trag {0} gesamt ein: {1} Grundgewicht plus Scheiben.",
+  "Enter {0} in total, all plates.": "Trag {0} gesamt ein, nur Scheiben.",
+  "Enter {0}, the weight you lift.": "Trag {0} ein, das Gewicht, das du bewegst.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Jede Seite bekommt ihr eigenes Gewicht und ihre Wiederholungen. Beide zählen zum Volumen.",
+  "Volume per set: {0}": "Volumen pro Satz: {0}",
+  "Set a weight above to see what to enter.": "Stell oben ein Gewicht ein, um zu sehen, was du einträgst.",
 };

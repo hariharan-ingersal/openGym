@@ -2449,6 +2449,21 @@ export const PT_BR_OVERRIDES = {
   "Your watch stops getting workouts while Watch is off. It stays paired.": "Seu relógio para de receber treinos enquanto “Relógio” estiver desligado. Continua pareado.",
   "Your webhooks stop sending while Integrations is off. They stay set up.": "Seus webhooks param de enviar enquanto “Integrações” estiver desligado. Continuam configurados.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.": "{0} para de sincronizar enquanto “Saúde” estiver desligado. Nada fica desconectado, e ele se atualiza quando “Saúde” voltar.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Exemplo de registro",
+  "Both sides": "Dois lados",
+  "Base weight is included in the logged total.": "O peso base está incluído no total registrado.",
+  "Enter {0}, the weight of one. Volume counts both.": "Registre {0}, o peso de um. O volume conta os dois.",
+  "Enter {0}, both together. Volume counts it once.": "Registre {0}, os dois juntos. O volume conta uma vez.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Registre {0} do jeito que você conta. O volume usa como foi digitado.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Registre {0}, o que você segura. Um braço, então conta uma vez.",
+  "Enter {0} in total: the {1} bar plus plates.": "Registre {0} no total: a barra de {1} mais as anilhas.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Registre {0} no total: {1} de peso base mais as anilhas.",
+  "Enter {0} in total, all plates.": "Registre {0} no total, só anilhas.",
+  "Enter {0}, the weight you lift.": "Registre {0}, o peso que você levanta.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Cada lado registra o próprio peso e as próprias repetições. Os dois contam no volume.",
+  "Volume per set: {0}": "Volume por série: {0}",
+  "Set a weight above to see what to enter.": "Defina um peso acima para ver o que registrar.",
 }
 
 export default { ...pt, ...PT_BR_OVERRIDES }

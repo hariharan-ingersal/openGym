@@ -12,7 +12,7 @@ import { usesBar } from '../lib/bar.js'
 import { loadKindFor, baseWeightFor, inventoryFor, rowLoad, sameLoad, plateDelta, dropGrid } from '../lib/plates.js'
 import { pickerStock, pickerActiveSet } from '../lib/plate-picker.js'
 import PlatePicker from '../components/PlatePicker.jsx'
-import { effectiveRoutines, effectiveRoutineIds, lastEntryFor, bestWeightFor, bestWeightForEntry, freestyleConfig, pickedExerciseConfig, setsDoneActive, setUnitsTotal, supersetUnits, unitOf, setLabel, modeOf, isBw, isPerSide, repStep, EFFORT, effortOf, stepEffort, capEffort, cascadeWeight, liveReramp, insertWarmupRow, barFloor, makeWarmupAt, canBeWarmup, makeWorkAt, removeRowAt, removeLastSet, setSpanAt, copyRowAt, copySpanAt, insertRowAt, pairAdjacent, unpairSuperset, cleanupSg, applyIntensifierPlan, pinnedNoteFor, exNoteFor, setsRepsOf, sessionVolume } from '../lib/history.js'
+import { effectiveRoutines, effectiveRoutineIds, lastEntryFor, bestWeightFor, bestWeightForEntry, freestyleConfig, pickedExerciseConfig, setsDoneActive, setUnitsTotal, supersetUnits, unitOf, setLabel, modeOf, isBw, isPerSide, repStep, EFFORT, effortOf, stepEffort, capEffort, cascadeWeight, liveReramp, insertWarmupRow, barFloor, makeWarmupAt, canBeWarmup, makeWorkAt, removeRowAt, removeLastSet, setSpanAt, copyRowAt, copySpanAt, insertRowAt, pairAdjacent, unpairSuperset, cleanupSg, applyIntensifierPlan, pinnedNoteFor, exNoteFor, setsRepsOf, sessionVolume, countsWarmups } from '../lib/history.js'
 import { cleanNum, fmtNum, fmtPlate, fmtVol, exerciseNameText, fmtDate, fmtDaysAgo, todayISO, exCount, DAYN } from '../lib/format.js'
 import { speedUnitOf, toSpeed, fromSpeed } from '../lib/speed.js'
 import { clampIncline, hasIncline, inclineFits, inclineFrom, INCLINE_STEP } from '../lib/incline.js'
@@ -59,6 +59,8 @@ import { glyphOf } from '../lib/glyphs.js'
 import { markAllSetsDone, sessionHistory } from '../lib/backfill.js'
 import { bindWatchActions, markDiscarded } from '../lib/watch-sync.js'
 import { bestSetFor } from '../lib/exercise-history.js'
+import { setVolume, volumeSum } from '../lib/logging-example.js'
+import { bodyLoadOf, countsBodyweight } from '../lib/bw-load.js'
 import { bindLiveActions } from '../lib/live-activity.js'
 import { isWarmupRow, isFailureSet, toggleFailure, isDropSet, isRestPauseSet, dropsOf, clustersOf, addDrop, addCluster, removeDropAt, removeClusterAt, setDropAt, setClusterAt, nextDropWeight, nextBurstReps, isSideSet, makeSideSet, setSideField, toggleSide, addSideDrop, removeSideDropAt, setSideDropAt, addSideCluster, removeSideClusterAt, setSideClusterAt, WEIGHT_ORIGIN_MANUAL, markWarmupEdited } from '../lib/workout-model.js'
 import { canMoveActiveWorkoutUnit, moveActiveWorkoutUnit, canMoveActiveWorkoutEntry, moveActiveWorkoutEntry } from '../lib/active-workout-order.js'
@@ -436,20 +438,30 @@ function ExerciseBlock({ entryIdx, compact, dense, editing, onToggle, onToggleSi
   // not a "Bar 50 lb".
   const loadSummary = loadKind === 'none' ? t('Off')
     : loadKind === 'single' ? t('Single stack')
-      : !usesBar(ex) ? t('Per side')
+      : !usesBar(ex) ? t('Both sides')
         : base > 0 ? t('Bar {0}', fmtNum(base) + ' ' + S.unit) : t('No bar')
   // The line under a set row (or a drop sub-row): shown on the first loaded row and whenever the
   // stack changes from the loaded row before it, so a run of equal weights shows its plates once.
   // What to strip and what to add rides along, except in the compact view.
-  const loadLine = key => {
-    if (!isOn(S, 'plates')) return null   // Settings → Modules: Plates and warm-ups off
+  // Settings → Workout → "Volume under each set": the set's own sum, from the volume engine
+  // (lib/logging-example.js setVolume). Weighted reps only, and not where Stats would add body
+  // weight to the set, since the sum here would not be the number counted.
+  const volOn = S.setVolume === true && mode === 'reps' && !bw && !(countsBodyweight(S) && bodyLoadOf(entry.id))
+  const volText = s => {
+    const v = volOn ? setVolume(entry, s, { warmups: countsWarmups(S) }) : null
+    return v && t('Volume = {0}', volumeSum(v, fmtNum) + ' = ' + fmtVol(v.volume, S.unit))
+  }
+  // `vol` rides on the set's own line, after the plates, or alone when there are none to show.
+  const loadLine = (key, vol) => {
+    const alone = vol ? <div className="plateline"><span>{vol}</span></div> : null
+    if (!isOn(S, 'plates')) return alone   // Settings → Modules: Plates and warm-ups off
     const at = loadSeq.findIndex(x => x.key === key)
     const L = at >= 0 ? loadSeq[at].load : null
-    if (!L) return null
+    if (!L) return alone
     let p = at - 1
     while (p >= 0 && !loadSeq[p].load) p--
     const prev = p >= 0 ? loadSeq[p].load : null
-    if (prev && sameLoad(prev, L)) return null
+    if (prev && sameLoad(prev, L)) return alone
     // "+" between plates: "45 + 5 per side" reads as a sum, a dot did not (Boris, 2026-09-13).
     const stack = L.plates.map(w => fmtPlate(w)).join(' + ')
     const text = L.barOnly ? t('Bar only')
@@ -458,7 +470,7 @@ function ExerciseBlock({ entryIdx, compact, dense, editing, onToggle, onToggleSi
     const moves = d ? [...d.strip.map(w => '−' + fmtPlate(w)), ...d.add.map(w => '+' + fmtPlate(w))] : []
     return <div className="plateline">
       <Icon name="plate" />
-      <span>{text}{L.missing > 0 && <> · <span className="short">{t('{0} short', fmtPlate(L.missing) + ' ' + S.unit)}</span></>}</span>
+      <span>{text}{L.missing > 0 && <> · <span className="short">{t('{0} short', fmtPlate(L.missing) + ' ' + S.unit)}</span></>}{vol && <> · {vol}</>}</span>
       {moves.length > 0 && <span className="moves">{moves.join(' ')}</span>}
     </div>
   }
@@ -873,7 +885,7 @@ function ExerciseBlock({ entryIdx, compact, dense, editing, onToggle, onToggleSi
               <Icon name="swap" /><span>{t('Psst: swipe a set. Left deletes, right copies.')}</span><Icon name="xmark" />
             </button>
           </div>}
-          {loadLine(String(i))}
+          {loadLine(String(i), volText(s))}
           {/* The set's own note (lib/set-notes.js): a quiet line under the row, a tap edits it. */}
           {!pairTail && setNoteOf(s) && <button type="button" className="setnote-line" aria-label={t('Edit note') + ': ' + setNoteOf(s)}
             onClick={() => setNoteSheet(entryIdx, i, isWarmupRow(s) ? t('Warm-up') : t('Set {0}', setNumOf(s, i)))}>

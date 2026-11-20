@@ -599,6 +599,13 @@ export default function Settings({ page = null, find = null, via = null, entryKe
           subtitle={t('A small ↑, = or ↓ on each set you finish, in the workout and in History.')}>
           <Switch aria-label={t('Compare sets with last time')} checked={S.setTrend !== false} onChange={v => update(s => { s.setTrend = v })} />
         </Row>
+        {/* The sum behind each set's volume, on the line under it next to its plates
+            (Workout.jsx volText). Off unless switched on. */}
+        <Row icon="chart" iconTint="var(--indigo)" title={t('Volume under each set')}
+          subtitle={t('Shows how each set’s volume is worked out, next to its plates.')}>
+          <Switch aria-label={t('Volume under each set')} checked={S.setVolume === true}
+            onChange={v => update(s => { if (v) s.setVolume = true; else delete s.setVolume })} />
+        </Row>
         {/* One exercise at a time (cards with Prev/Next), the whole session stacked as a
             scrollable list, or that list stripped to just names and set rows (compact). Legacy or
             unknown values read as cards. The workout's ⋯ menu can override it for one session. */}

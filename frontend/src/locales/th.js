@@ -4391,4 +4391,19 @@ export default {
   "{0} of {1} modules on.": "เปิดอยู่ {0} จาก {1} โมดูล",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     '{0} จะหยุดซิงก์ระหว่างที่ "สุขภาพ" ปิดอยู่ ไม่มีอะไรถูกตัดการเชื่อมต่อ และจะตามทันเมื่อเปิด "สุขภาพ" อีกครั้ง',
+  // --- exercise settings: logging example ---
+  "Logging example": "ตัวอย่างการบันทึก",
+  "Both sides": "สองข้าง",
+  "Base weight is included in the logged total.": "น้ำหนักฐานรวมอยู่ในยอดที่บันทึกแล้ว",
+  "Enter {0}, the weight of one. Volume counts both.": "ใส่ {0} น้ำหนักของหนึ่งอัน ปริมาณรวมนับทั้งสองอัน",
+  "Enter {0}, both together. Volume counts it once.": "ใส่ {0} รวมทั้งสองอัน ปริมาณรวมนับครั้งเดียว",
+  "Enter {0} as you count it. Volume uses it as typed.": "ใส่ {0} ตามที่คุณนับ ปริมาณรวมใช้ตามที่พิมพ์",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "ใส่ {0} อันที่คุณถือ แขนเดียว จึงนับครั้งเดียว",
+  "Enter {0} in total: the {1} bar plus plates.": "ใส่รวม {0}: บาร์ {1} บวกแผ่นน้ำหนัก",
+  "Enter {0} in total: the {1} base weight plus plates.": "ใส่รวม {0}: น้ำหนักฐาน {1} บวกแผ่นน้ำหนัก",
+  "Enter {0} in total, all plates.": "ใส่รวม {0} เป็นแผ่นน้ำหนักทั้งหมด",
+  "Enter {0}, the weight you lift.": "ใส่ {0} น้ำหนักที่คุณยก",
+  "Each side logs its own weight and reps. Both count toward volume.": "แต่ละข้างบันทึกน้ำหนักและจำนวนครั้งของตัวเอง ทั้งสองข้างนับรวมในปริมาณ",
+  "Volume per set: {0}": "ปริมาณต่อเซต: {0}",
+  "Set a weight above to see what to enter.": "ตั้งน้ำหนักด้านบนเพื่อดูว่าต้องใส่อะไร",
 };

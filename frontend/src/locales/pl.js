@@ -4791,4 +4791,19 @@ export default {
   "{0} of {1} modules on.": "Włączone moduły: {0} z {1}.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "{0} przestaje się synchronizować, gdy „Zdrowie” jest wyłączone. Nic nie zostaje odłączone, a po ponownym włączeniu wszystko się nadrobi.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Przykład zapisu",
+  "Both sides": "Obie strony",
+  "Base weight is included in the logged total.": "Ciężar bazowy wlicza się do zapisanej sumy.",
+  "Enter {0}, the weight of one. Volume counts both.": "Wpisz {0}, ciężar jednej. Objętość liczy obie.",
+  "Enter {0}, both together. Volume counts it once.": "Wpisz {0}, obie razem. Objętość liczy to raz.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Wpisz {0} tak, jak liczysz. Objętość bierze to tak, jak wpisano.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Wpisz {0}, tę, którą trzymasz. Jedna ręka, więc liczy się raz.",
+  "Enter {0} in total: the {1} bar plus plates.": "Wpisz łącznie {0}: gryf {1} plus talerze.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Wpisz łącznie {0}: {1} ciężaru bazowego plus talerze.",
+  "Enter {0} in total, all plates.": "Wpisz łącznie {0}, same talerze.",
+  "Enter {0}, the weight you lift.": "Wpisz {0}, ciężar, który podnosisz.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Każda strona ma własny ciężar i powtórzenia. Obie liczą się do objętości.",
+  "Volume per set: {0}": "Objętość na serię: {0}",
+  "Set a weight above to see what to enter.": "Ustaw ciężar powyżej, aby zobaczyć, co wpisać.",
 };

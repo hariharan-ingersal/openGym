@@ -105,15 +105,15 @@ describe('plate loading editor', () => {
     act(() => barWeightSheet(SQUAT))
     const host = mountTopSheet()
     expect(host.querySelector('h3').textContent).toBe('Plate loading')
-    expect(segButton(host, 'Per side').classList.contains('on')).toBe(true)
+    expect(segButton(host, 'Both sides').classList.contains('on')).toBe(true)
     expect(S().loadKind).toEqual({})
     act(() => segButton(host, 'Single stack').click())
     expect(S().loadKind[SQUAT]).toEqual(stamped('single'))
-    act(() => segButton(host, 'Per side').click())
+    act(() => segButton(host, 'Both sides').click())
     // Back to what the equipment implies: a stamped null, not a dropped key, so the way back
     // wins a sync against the other device's older 'single' instead of losing to it.
     expect(S().loadKind[SQUAT]).toEqual(stamped(null))
-    expect(segButton(host, 'Per side').classList.contains('on')).toBe(true)
+    expect(segButton(host, 'Both sides').classList.contains('on')).toBe(true)
     act(() => segButton(host, 'Off').click())
     expect(S().loadKind[SQUAT]).toEqual(stamped('none'))
     expect(host.textContent).toContain('No plate line under the sets.')

@@ -4428,4 +4428,19 @@ export default {
   "{0} of {1} modules on.": "{1}টির মধ্যে {0}টি মডিউল চালু।",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     '"স্বাস্থ্য" বন্ধ থাকলে {0} সিঙ্ক বন্ধ রাখে। কিছুই বিচ্ছিন্ন হয় না, আর "স্বাস্থ্য" ফিরলেই সব পুষিয়ে নেয়।',
+  // --- exercise settings: logging example ---
+  "Logging example": "লগ করার উদাহরণ",
+  "Both sides": "দুই পাশ",
+  "Base weight is included in the logged total.": "বেস ওজন লগ করা মোটের মধ্যে ধরা আছে।",
+  "Enter {0}, the weight of one. Volume counts both.": "{0} লিখুন, একটির ওজন। ভলিউমে দুটোই গোনা হয়।",
+  "Enter {0}, both together. Volume counts it once.": "{0} লিখুন, দুটো একসাথে। ভলিউমে একবার গোনা হয়।",
+  "Enter {0} as you count it. Volume uses it as typed.": "{0} যেভাবে গোনেন সেভাবে লিখুন। ভলিউম যেমন লেখা তেমনই নেয়।",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "{0} লিখুন, যেটি ধরে আছেন। এক হাত, তাই একবার গোনা হয়।",
+  "Enter {0} in total: the {1} bar plus plates.": "মোট {0} লিখুন: {1} বার আর প্লেট।",
+  "Enter {0} in total: the {1} base weight plus plates.": "মোট {0} লিখুন: {1} বেস ওজন আর প্লেট।",
+  "Enter {0} in total, all plates.": "মোট {0} লিখুন, সবই প্লেট।",
+  "Enter {0}, the weight you lift.": "{0} লিখুন, যে ওজন আপনি তোলেন।",
+  "Each side logs its own weight and reps. Both count toward volume.": "প্রতিটি পাশের নিজের ওজন আর রেপ লগ হয়। দুটোই ভলিউমে গোনা হয়।",
+  "Volume per set: {0}": "প্রতি সেটের ভলিউম: {0}",
+  "Set a weight above to see what to enter.": "কী লিখবেন দেখতে উপরে একটি ওজন দিন।",
 };

@@ -4684,4 +4684,19 @@ export default {
   "{0} of {1} modules on.": "Увімкнено модулів: {0} з {1}.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "Поки «Здоров'я» вимкнено, {0} не синхронізується. Нічого не від’єднується, і все наздожене, щойно «Здоров'я» повернеться.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Приклад запису",
+  "Both sides": "Обидві сторони",
+  "Base weight is included in the logged total.": "Базова вага входить у записаний підсумок.",
+  "Enter {0}, the weight of one. Volume counts both.": "Вводь {0}, вагу однієї. В обсяг ідуть обидві.",
+  "Enter {0}, both together. Volume counts it once.": "Вводь {0}, обидві разом. В обсяг іде один раз.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Вводь {0} так, як рахуєш. Обсяг бере як введено.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Вводь {0}, ту, що тримаєш. Одна рука, тому рахується один раз.",
+  "Enter {0} in total: the {1} bar plus plates.": "Вводь {0} загалом: гриф {1} плюс млинці.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Вводь {0} загалом: {1} базової ваги плюс млинці.",
+  "Enter {0} in total, all plates.": "Вводь {0} загалом, лише млинці.",
+  "Enter {0}, the weight you lift.": "Вводь {0}, вагу, яку піднімаєш.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Кожна сторона має свою вагу й повторення. Обидві йдуть в обсяг.",
+  "Volume per set: {0}": "Обсяг за підхід: {0}",
+  "Set a weight above to see what to enter.": "Задай вагу вище, щоб побачити, що вводити.",
 };

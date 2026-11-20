@@ -4487,4 +4487,19 @@ export default {
   "{0} of {1} modules on.": "{1} modulból {0} bekapcsolva.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     "Amíg az „Egészség” ki van kapcsolva, a(z) {0} nem szinkronizál. A kapcsolat megmarad, és mindent bepótol, amint az „Egészség” újra be van kapcsolva.",
+  // --- exercise settings: logging example ---
+  "Logging example": "Rögzítési példa",
+  "Both sides": "Két oldal",
+  "Base weight is included in the logged total.": "Az alapsúly benne van a rögzített összesben.",
+  "Enter {0}, the weight of one. Volume counts both.": "Írd be: {0}, egy darab súlya. A volumen mindkettőt számolja.",
+  "Enter {0}, both together. Volume counts it once.": "Írd be: {0}, a kettő együtt. A volumen egyszer számolja.",
+  "Enter {0} as you count it. Volume uses it as typed.": "Írd be: {0}, ahogy számolod. A volumen úgy veszi, ahogy beírtad.",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "Írd be: {0}, amit tartasz. Egy kar, ezért egyszer számít.",
+  "Enter {0} in total: the {1} bar plus plates.": "Írd be összesen: {0}, a {1} rúd plusz a tárcsák.",
+  "Enter {0} in total: the {1} base weight plus plates.": "Írd be összesen: {0}, {1} alapsúly plusz a tárcsák.",
+  "Enter {0} in total, all plates.": "Írd be összesen: {0}, csak tárcsák.",
+  "Enter {0}, the weight you lift.": "Írd be: {0}, a súly, amit megemelsz.",
+  "Each side logs its own weight and reps. Both count toward volume.": "Mindkét oldal saját súlyt és ismétlést kap. Mindkettő beleszámít a volumenbe.",
+  "Volume per set: {0}": "Volumen szériánként: {0}",
+  "Set a weight above to see what to enter.": "Adj meg fent egy súlyt, és látod, mit kell beírni.",
 };

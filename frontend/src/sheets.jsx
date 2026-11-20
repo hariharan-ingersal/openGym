@@ -101,6 +101,7 @@ import { copyText } from './lib/clipboard.js'
 import { queueRemaining, pinState } from './lib/queue.js'
 import { DAY_NOTE_TAGS, DAY_NOTE_LABEL, DAY_NOTE_ICON, dayNoteOf, dayNoteLine, canNoteDay, withDayNote } from './lib/day-notes.js'
 import { isOn } from './lib/modules.js'
+import { loggingExample, volumeSum } from './lib/logging-example.js'
 
 const S = () => useStore.getState().S
 const update = (...a) => useStore.getState().update(...a)
@@ -960,7 +961,7 @@ function BarWeightEditor({ ex, cfg, extra }) {
   })
   return <>
     <Segmented className="seg-inline" value={kind} onChange={setKind}
-      options={[{ value: 'pairs', label: t('Per side') }, { value: 'single', label: t('Single stack') }, { value: 'none', label: t('Off') }]} />
+      options={[{ value: 'pairs', label: t('Both sides') }, { value: 'single', label: t('Single stack') }, { value: 'none', label: t('Off') }]} />
     <div className="small dim" style={{ margin: '8px 0 12px' }}>
       {kind === 'pairs' ? t('Plates split over both sides of a bar.')
         : kind === 'single' ? t('One stack: a belt, a landmine, a plate-loaded machine, a sled.')
@@ -983,6 +984,7 @@ function BarWeightEditor({ ex, cfg, extra }) {
         {noBar ? t('Plates are counted from 0. Turn this off for the default ({0}).', fmtNum(def) + ' ' + st.unit)
           : bar ? (explicit ? t('Set to 0 to go back to the default ({0}).', fmtNum(def) + ' ' + st.unit) : mine ? t('Your bar for this type, set in Your bars.') : t('Default for this bar type.'))
             : t('The machine or sled itself, before any plate goes on. 0 if it is all plates.')}
+        {!noBar && base > 0 ? ' ' + t('Base weight is included in the logged total.') : ''}
         {extra ? ' ' + extra : ''}
       </div>
       {/* The profile-wide side of it: one bar weight per type, for every exercise without its own. */}
@@ -1006,6 +1008,62 @@ function DbLoadPicker({ ex, cfg, value, onChange }) {
       {value === 'each' ? (one ? t('The weight of the one you hold. One arm, so it counts once.') : t('The weight of one, so 20 means 20 in each hand. Volume counts both.'))
         : value === 'total' ? t('Both together, so 40 means two 20s.')
           : t('Counted as you type it, the way it always was.')}
+    </div>
+  </>
+}
+
+// The "Logging example" in an exercise's settings (lib/logging-example.js): one set built from the
+// configured weight and reps, laid out like the workout's set rows (same heading, same L/R split,
+// same plate line), what to type in it, and the volume the engine makes of it. Read-only, from the
+// sheet's unsaved draft, so it follows every change before Save. Weighted reps work only.
+function LoggingExample({ st, ex, cfg, mode, bw }) {
+  const e = loggingExample(st, { ...cfg, id: ex.id }, { mode, bodyweight: bw, plates: isOn(st, 'plates') })
+  if (!e) return null
+  const unit = st.unit
+  const amount = v => fmtNum(v) + ' ' + unit
+  const heading = e.heading === 'each' ? t('Each ({0})', unit) : e.heading === 'total' ? t('Both ({0})', unit) : t('Weight ({0})', unit)
+  const cell = (v, cls) => <div className={'stp plain ' + cls}><span className="val">
+    <span className="num" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{fmtNum(v)}</span></span></div>
+  const L = e.load
+  const stack = L && !L.barOnly ? L.plates.map(fmtPlate).join(' + ') : ''
+  const enter = e.w > 0 && ({
+    each: () => t('Enter the weight of one. Volume counts both.', amount(e.w)),
+    total: () => t('Enter both together. Volume counts it once.', amount(e.w)),
+    as: () => t('Enter weight as you count it. Volume uses it as typed.', amount(e.w)),
+    'one-arm': () => t('Enter weight of the one you hold. One arm, so it counts once.', amount(e.w)),
+    bar: () => t('Enter in total: the {1} bar plus plates.', amount(e.w), amount(e.base)),
+    base: () => t('Enter in total: the {1} base weight plus plates.', amount(e.w), amount(e.base)),
+    'no-bar': () => t('Enter in total, all plates.', amount(e.w)),
+    plates: () => t('Enter in total, all plates.', amount(e.w)),
+    plain: () => t('Enter the weight you lift.', amount(e.w)),
+  })[e.what]()
+  return <>
+    <h4 className="sec">{t('Logging example')}</h4>
+    <div className="sect-b" role="group" aria-label={t('Logging example')} style={{ padding: '10px 12px 4px', marginBottom: 8 }}>
+      <div className={'sethead plain' + (e.perSide ? ' per-side' : '')}>
+        <span className="n-sp" /><span className="w-sp">{heading}</span><span className="r-sp">{t('Reps')}</span>
+      </div>
+      {e.perSide
+        ? <div className="setrow-side"><span className="n">1</span><div className="side-rows">
+          {e.rows.map(row => <div key={row.side} className="setrow side">
+            <span className="sidetag" aria-label={row.side === 'L' ? t('Left') : t('Right')}>{row.side === 'L' ? t('L') : t('R')}</span>
+            {cell(row.w, 'w')}{cell(row.r, 'r')}
+          </div>)}
+        </div></div>
+        : <div className="setrow"><span className="n">1</span>{cell(e.rows[0].w, 'w')}{cell(e.rows[0].r, 'r')}</div>}
+      {/* The plate line as the workout draws it, tagged so it reads as a loading guide, not
+          something to type. Absent with Plate loading off, at 0 weight, or the module off. */}
+      {L && <div className="plateline">
+        <Icon name="plate" /><span className="tag nocap">{t('Plate loading')}</span>
+        <span>{L.barOnly ? t('Bar only') : L.kind === 'pairs' ? t('{0} per side', stack || '–') : t('Load {0}', stack || '–')}
+          {L.missing > 0 && <> · <span className="short">{t('{0} short', fmtPlate(L.missing) + ' ' + unit)}</span></>}</span>
+      </div>}
+    </div>
+    <div className="small dim" style={{ marginBottom: 18 }}>
+      {e.w > 0 ? <>
+        {enter}{e.perSide ? ' ' + t('Each side logs its own weight and reps. Both count toward volume.') : ''}
+        <br />{t('Volume per set: {0}', volumeSum(e, fmtNum) + ' = ' + fmtVol(e.volume, unit))}
+      </> : t('Set a weight above to see what to enter.')}
     </div>
   </>
 }
@@ -2441,6 +2499,8 @@ function ExConfig({ ex, existing, onSave, onDelete, onReplace, close, routine, i
     {c.intensifier?.type === 'restpause' && <div className="small dim" style={{ marginTop: -10, marginBottom: 18 }}>
       {t('Rest-pause always trains as one warm-up set at this rep count, then one rest-pause work set. "Sets" isn’t used here.')}
     </div>}
+    {/* What to type when you log this, and what the volume makes of it: weighted reps only. */}
+    <LoggingExample st={st} ex={ex} cfg={c} mode={mode} bw={bw} />
     {/* Planned warm-ups: the session used to start at the work weight and you added every
         warm-up by hand, every time. Rest-pause is excluded because it builds its own warm-up
         row, and cardio because an interval plan has no load to ramp. */}

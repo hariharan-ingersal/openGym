@@ -4436,4 +4436,19 @@ export default {
   "{0} of {1} modules on.": "{1} में से {0} मॉड्यूल चालू।",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.":
     '"सेहत" बंद रहने तक {0} सिंक नहीं करता। कुछ भी डिस्कनेक्ट नहीं होता, और "सेहत" लौटते ही सब पकड़ लेता है।',
+  // --- exercise settings: logging example ---
+  "Logging example": "लॉग करने का उदाहरण",
+  "Both sides": "दोनों तरफ़",
+  "Base weight is included in the logged total.": "बेस वज़न लॉग किए गए कुल में शामिल है।",
+  "Enter {0}, the weight of one. Volume counts both.": "{0} डालें, एक का वज़न। वॉल्यूम दोनों को गिनता है।",
+  "Enter {0}, both together. Volume counts it once.": "{0} डालें, दोनों मिलाकर। वॉल्यूम इसे एक बार गिनता है।",
+  "Enter {0} as you count it. Volume uses it as typed.": "{0} वैसे डालें जैसे आप गिनते हैं। वॉल्यूम इसे लिखे अनुसार लेता है।",
+  "Enter {0}, the one you hold. One arm, so it counts once.": "{0} डालें, जो आप पकड़ते हैं। एक हाथ, इसलिए एक बार गिना जाता है।",
+  "Enter {0} in total: the {1} bar plus plates.": "कुल {0} डालें: {1} की बार और प्लेटें।",
+  "Enter {0} in total: the {1} base weight plus plates.": "कुल {0} डालें: {1} बेस वज़न और प्लेटें।",
+  "Enter {0} in total, all plates.": "कुल {0} डालें, सब प्लेटें।",
+  "Enter {0}, the weight you lift.": "{0} डालें, जो वज़न आप उठाते हैं।",
+  "Each side logs its own weight and reps. Both count toward volume.": "हर तरफ़ का अपना वज़न और रेप्स दर्ज होते हैं। दोनों वॉल्यूम में गिने जाते हैं।",
+  "Volume per set: {0}": "हर सेट का वॉल्यूम: {0}",
+  "Set a weight above to see what to enter.": "क्या डालना है देखने के लिए ऊपर वज़न सेट करें।",
 };
